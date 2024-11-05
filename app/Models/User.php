@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [ // Agregar nuevos Campos y Guardado de estos
+    protected $fillable = [ // Agregar nuevos Campos y Guardado
         'name',
         'email',
         'password',
