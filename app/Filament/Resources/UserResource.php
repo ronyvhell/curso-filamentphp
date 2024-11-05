@@ -20,11 +20,15 @@ use App\Models\State;
 use App\Models\City;
 use Filament\Forms\Set;
 
+
+
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
     protected static ?string $navigationLabel = 'Employees'; // Cambiar nombre de Módulo
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Employees Management';
+    protected static ?string $navigationIcon = 'heroicon-o-user';
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
@@ -96,12 +100,10 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable(), // Agregar Búsqueda
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('state_id')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('city_id')
+                Tables\Columns\TextColumn::make('address')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('postal_code')
                     ->searchable(),
